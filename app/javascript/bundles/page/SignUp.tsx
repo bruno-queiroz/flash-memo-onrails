@@ -1,42 +1,14 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import { Form } from "../components/Form";
 import { Input } from "../components/Input";
-// import { useMutation } from "react-query";
-// import { postSignUp } from "../fetch/postSignUp";
 import { FormErrorMessage } from "../components/FormErrorMessage";
 import { LoadSpinner } from "../components/LoadSpinner";
-
-export interface UserForm {
-  name: string;
-  password: string;
-}
+import { useSignUp } from "../hooks/useSignUp";
 
 export const SignUp = () => {
-  const nameInputRef = useRef<HTMLInputElement>(null);
-  const passwordInputRef = useRef<HTMLInputElement>(null);
-  //   const {
-  //     mutateAsync: newUserMutation,
-  //     isLoading,
-  //     error,
-  //   } = useMutation((user: UserForm) => postSignUp(user));
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (nameInputRef.current && passwordInputRef.current) {
-      const newUser = {
-        name: nameInputRef.current?.value,
-        password: passwordInputRef.current?.value,
-      };
-
-      try {
-        // await newUserMutation(newUser);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  };
+  const { nameInputRef, passwordInputRef, isLoading, error, onSubmit } =
+    useSignUp();
 
   return (
     <section className="flex flex-col items-center justify-center p-4">
@@ -59,9 +31,9 @@ export const SignUp = () => {
         />
 
         <button className="bg-primary-yellow py-2 px-4 rounded w-[max-content] mx-auto mt-4 text-white font-semibold">
-          {false ? <LoadSpinner /> : "Sign Up"}
+          {isLoading ? <LoadSpinner /> : "Sign Up"}
         </button>
-        <FormErrorMessage errorMessage={({} as Error)?.message} />
+        <FormErrorMessage error={error} />
         <a href="/users/sign_in" className="text-center dark:text-gray-300 ">
           Already have an account? click here
         </a>
