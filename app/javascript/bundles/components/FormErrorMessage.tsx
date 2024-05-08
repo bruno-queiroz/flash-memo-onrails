@@ -8,7 +8,11 @@ interface FormErrorMessageProps {
 
 export const FormErrorMessage = ({ error }: FormErrorMessageProps) => {
   const errors = formatErrors(error);
-  return errors.map((errorMsg) => {
-    return <div className="text-red-500 text-center">{errorMsg}</div>;
+  return errors.map((errorMsg, i) => {
+    return (
+      <div className="text-red-500 text-center" key={i}>
+        {errorMsg}
+      </div>
+    );
   });
 };
