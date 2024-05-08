@@ -7,7 +7,11 @@ import { BsFillMoonFill as MoonIcon } from "react-icons/bs";
 
 import { HeaderNavLink } from "./HeaderNavLink";
 
-export const Header = () => {
+interface HeaderProps {
+  isUserSignedIn: boolean;
+}
+
+export const Header = ({ isUserSignedIn }: HeaderProps) => {
   const [isNavActive, setIsNavActive] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
@@ -52,7 +56,7 @@ export const Header = () => {
               <CloseIcon />
             </button>
             <ul className="flex flex-col sm:flex-row dark:text-white">
-              {true ? (
+              {isUserSignedIn ? (
                 <>
                   <li onClick={() => setIsNavActive(false)}>
                     <HeaderNavLink name="Decks" path="/decks" />
