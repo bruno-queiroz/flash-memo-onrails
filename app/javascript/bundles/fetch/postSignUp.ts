@@ -1,4 +1,5 @@
-import { ServerResponse } from "./types";
+import { FormError } from "../hooks/useSignUp";
+import { User } from "./types";
 
 export interface UserForm {
   user: {
@@ -7,8 +8,12 @@ export interface UserForm {
   };
 }
 
+export interface SignUpError {
+  errors: FormError;
+}
+
 export const postSignUp = async (user: UserForm) => {
-  const response = await fetch(`http://127.0.0.1:3000/users`, {
+  const response = await fetch(`http://127.0.0.1:3000/sign-up.json`, {
     method: "POST",
     redirect: "manual",
     headers: {
@@ -17,10 +22,12 @@ export const postSignUp = async (user: UserForm) => {
     body: JSON.stringify(user),
     credentials: "include",
   });
-  const data: ServerResponse<any> = await response.json();
 
-  if (data.isOk) {
-    window.location.href = "/";
+  const data: User = await response.json();
+
+  if (!data?.id) {
+    throw data;
   }
-  return data;
+
+  window.location.href = "/";
 };
