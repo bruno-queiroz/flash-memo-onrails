@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import { SignUpError, postSignUp } from "../fetch/postSignUp";
-import { User } from "../fetch/types";
+import { postSignUp } from "../fetch/postSignUp";
 
 export interface FormError {
   [key: string]: string[];
@@ -29,7 +28,7 @@ export const useSignUp = () => {
       } catch (err) {
         setIsLoading(false);
 
-        if (Object.keys(err?.errors).length === 0) {
+        if (Object.keys(err?.errors || {}).length === 0) {
           setError({ Error: ["Something went wrong."] });
         }
         setError(err?.errors);
