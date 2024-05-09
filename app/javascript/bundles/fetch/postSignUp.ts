@@ -1,4 +1,3 @@
-import { FormError } from "../hooks/useSignUp";
 import { User } from "./types";
 
 export interface UserForm {
@@ -6,10 +5,6 @@ export interface UserForm {
     name: string;
     password: string;
   };
-}
-
-export interface SignUpError {
-  errors: FormError;
 }
 
 export const postSignUp = async (user: UserForm) => {
