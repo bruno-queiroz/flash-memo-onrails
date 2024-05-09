@@ -11,9 +11,9 @@
     <%= stylesheet_pack_tag 'client-bundle' %>
   </head>
 
-  <body>
+  <body class="dark:bg-neutral-800 bg-white">
     <main class="container mx-auto">
-      <%= react_component("Header", props: {data: ""}, prerender: false) %>
+      <%= react_component("Header", props: {isUserSignedIn: user_signed_in?}, prerender: true) %>
       <%= yield %>
     </main>
   </body>
