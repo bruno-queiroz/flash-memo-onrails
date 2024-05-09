@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-import { postSignUp } from "../fetch/postSignUp";
+import { SignUpError, postSignUp } from "../fetch/postSignUp";
+import { User } from "../fetch/types";
 
 export interface FormError {
   [key: string]: string[];
@@ -21,15 +22,17 @@ export const useSignUp = () => {
         password: passwordInputRef.current?.value,
       };
 
-      setIsLoading(true);
-      const response = await postSignUp({ user });
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        await postSignUp({ user });
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
 
-      if (!response.isOk) {
-        if (Object.keys(response.errors).length === 0) {
-          setError({ Error: ["something went wrong"] });
+        if (Object.keys(err?.errors).length === 0) {
+          setError({ Error: ["Something went wrong."] });
         }
-        setError(response.errors);
+        setError(err?.errors);
       }
     }
   };
