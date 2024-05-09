@@ -22,16 +22,17 @@ export const useSignIn = () => {
         remember_me: "1" as const,
       };
 
-      setIsLoading(true);
-      const response = await postSignIn({ user });
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        await postSignIn({ user });
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
 
-      if (!response?.id) {
-        console.log("add error");
-        if (Object.keys(response.errors || {}).length === 0) {
-          setError({ Error: ["something went wrong"] });
+        if (Object.keys(err?.errors || {}).length === 0) {
+          setError({ Error: ["Something went wrong."] });
         }
-        setError(response);
+        setError(err?.errors);
       }
     }
   };
