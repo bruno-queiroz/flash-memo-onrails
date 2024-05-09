@@ -1,3 +1,5 @@
+import { User } from "./types";
+
 export interface UserForm {
   user: {
     name: string;
@@ -7,7 +9,7 @@ export interface UserForm {
 }
 
 export const postSignIn = async (user: UserForm) => {
-  const response = await fetch(`http://127.0.0.1:3000/users/sign_in.json`, {
+  const response = await fetch(`http://127.0.0.1:3000/sign-in.json`, {
     method: "POST",
     redirect: "manual",
     headers: {
@@ -16,9 +18,11 @@ export const postSignIn = async (user: UserForm) => {
     body: JSON.stringify(user),
     credentials: "include",
   });
-  const data = await response.json();
-  if (data?.id) {
-    window.location.href = "/";
+  const data: User = await response.json();
+
+  if (!data?.id) {
+    throw data;
   }
-  return data;
+
+  window.location.href = "/";
 };
