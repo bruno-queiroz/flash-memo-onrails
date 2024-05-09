@@ -6,22 +6,22 @@ import { BsFillSunFill as SunIcon } from "react-icons/bs";
 import { BsFillMoonFill as MoonIcon } from "react-icons/bs";
 
 import { HeaderNavLink } from "./HeaderNavLink";
+import { deleteSignOut } from "../fetch/deleteSignOut";
+import { useHeader } from "../hooks/useHeader";
 
 interface HeaderProps {
   isUserSignedIn: boolean;
 }
 
 export const Header = ({ isUserSignedIn }: HeaderProps) => {
-  const [isNavActive, setIsNavActive] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const changeTheme = () => {
-    document.documentElement.classList.toggle("dark");
-    // localStorage.setItem("theme", !isDarkMode ? "dark" : "light");
-    setIsDarkMode(!isDarkMode);
-  };
-
-  const logOut = async () => {};
+  const {
+    isNavActive,
+    isLoggingOut,
+    setIsNavActive,
+    changeTheme,
+    isDarkMode,
+    logOut,
+  } = useHeader();
 
   return (
     <header className="max-w-[1100px] p-4 mx-auto dark:bg-neutral-800 bg-white">
@@ -72,7 +72,7 @@ export const Header = ({ isUserSignedIn }: HeaderProps) => {
                     className="flex sm:flex-1 sm:justify-end p-3"
                   >
                     <button onClick={logOut}>
-                      {false ? "Logging out..." : "Log Out"}
+                      {isLoggingOut ? "Logging out..." : "Log Out"}
                     </button>
                   </li>
                 </>
