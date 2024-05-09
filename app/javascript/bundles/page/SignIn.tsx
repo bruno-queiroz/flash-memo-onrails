@@ -28,7 +28,7 @@ export const SignIn = () => {
           {isLoading ? <LoadSpinner /> : "Sign In"}
         </button>
         <FormErrorMessage error={error} />
-        <a href="/sign_up" className="text-center dark:text-gray-300 ">
+        <a href="/sign-up" className="text-center dark:text-gray-300 ">
           Don't have an account? click here
         </a>
       </Form>
