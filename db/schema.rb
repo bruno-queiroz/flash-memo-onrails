@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_10_103757) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_10_110900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_103757) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "user_id", null: false
+    t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -31,4 +33,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_103757) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "decks", "users"
 end
