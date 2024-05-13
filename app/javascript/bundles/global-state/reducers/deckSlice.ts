@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const createDeckSlice = createSlice({
-  name: "createDeck",
+export const deckSlice = createSlice({
+  name: "deck",
   initialState: {
     isCreateDeckModalOpen: false,
     isEditModalOpen: false,
@@ -29,6 +29,6 @@ export const {
   setIsDeleteDeckModalOpen,
   setIsEditDeckModalOpen,
   setIsEditDeckNameModalOpen,
-} = createDeckSlice.actions;
+} = deckSlice.actions;
 
-export default createDeckSlice.reducer;
+export default deckSlice.reducer;
