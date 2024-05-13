@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import deckReducer from "./reducers/deckSlice";
+import createDeckReducer from "./reducers/createDeckSlice";
 
 export const store = configureStore({
   reducer: {
-    deck: deckReducer,
+    deck: createDeckReducer,
   },
 });
 
