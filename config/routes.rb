@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   post 'decks' => 'decks#create'
+  delete 'deck/:id' => 'decks#destroy'
   get 'decks-data' => 'decks#index'
 
   get 'up' => 'rails/health#show', as: :rails_health_check
