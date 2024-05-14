@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-    before_action :set_deck, only: %i[ destroy ]
+    before_action :set_deck, only: %i[ destroy update ]
 
     def index
         @decks = Deck.where("user_id = ?", current_user.id)
@@ -17,6 +17,14 @@ class DecksController < ApplicationController
 
     end
 
+    def update
+        if @deck.update(update_deck_params)
+            render json: {isOk: true, msg: "Deck updated successfully."}
+        else
+            render json: {isOk: false, msg: "Something went wrong updating deck."}
+        end
+    end
+
     def destroy
         @deck.destroy!
 
@@ -32,5 +40,9 @@ class DecksController < ApplicationController
 
         def deck_params
             params.require(:deck).permit(:title, :user_id)
+        end
+
+        def update_deck_params
+            params.require(:deck).permit(:title)
         end
 end
