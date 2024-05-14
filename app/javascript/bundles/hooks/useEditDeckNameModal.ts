@@ -49,11 +49,13 @@ export const useEditDeckNameModal = () => {
       );
       dispatch(setIsEditDeckNameModalOpen(false));
     } catch (err) {
-      setNotification({
-        isShowing: true,
-        isOk: false,
-        msg: err,
-      });
+      dispatch(
+        setNotification({
+          isShowing: true,
+          isOk: false,
+          msg: err,
+        })
+      );
     }
   };
 
