@@ -1,4 +1,8 @@
 class DecksController < ApplicationController
+    def index
+        @decks = Deck.where("user_id = ?", current_user.id)
+    end
+
     def create
         params[:deck][:user_id] = current_user.id
         @deck = Deck.new(deck_params)
