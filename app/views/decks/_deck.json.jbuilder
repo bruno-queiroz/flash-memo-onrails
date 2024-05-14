@@ -1,0 +1,1 @@
+json.extract! deck, :id, :title, :created_at
