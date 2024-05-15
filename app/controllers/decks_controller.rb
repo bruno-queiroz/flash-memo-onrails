@@ -10,19 +10,15 @@ class DecksController < ApplicationController
         params[:deck][:user_id] = current_user.id
         @deck = Deck.create!(deck_params)
 
-        render json: {isOk: true, msg: "Deck created successfully."}, status: :created
+        render :create, status: :created
     end
 
     def update
         @deck.update!(update_deck_params)
-
-        render json: {isOk: true, msg: "Deck updated successfully."}, status: :ok
     end
 
     def destroy
         @deck.destroy!
-
-        render json: {isOk: true, msg: "Deck deleted successfully."}, status: :ok        
     end
 
     private
@@ -39,6 +35,6 @@ class DecksController < ApplicationController
         end
 
         def deck_not_unique
-            render json: {isOk: false, msg: "You already have a deck with this name."}, status: :unprocessable_entity
+            render :deck_not_unique, status: :unprocessable_entity
         end
 end
