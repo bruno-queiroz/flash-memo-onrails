@@ -15,6 +15,10 @@ export const postDeck = async (newDeck: PostDeckParams) => {
     credentials: "include",
   });
   const data: ServerResponse<null> = await response.json();
-  console.log("post deck", data);
+
+  if (!data?.isOk) {
+    throw data.msg;
+  }
+
   return data;
 };
