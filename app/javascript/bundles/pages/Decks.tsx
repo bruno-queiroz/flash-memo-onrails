@@ -6,7 +6,6 @@ import { DeleteDeckModal } from "../components/DeleteDeckModal";
 import { EditDeckNameModal } from "../components/EditDeckNameModal";
 import { DeckSkeleton } from "../components/DeckSkeleton";
 import { DeckMessage } from "../components/DeckMessage";
-import { CRUDNotification } from "../components/CRUDNotification";
 
 import { useDecks } from "../hooks/useDecks";
 
@@ -15,7 +14,6 @@ export const Decks = () => {
 
   return (
     <section className="flex flex-col gap-6 items-center p-4 dark:text-gray-300 min-h-screen">
-      <CRUDNotification />
       <DeleteDeckModal />
       <CreateDeckModal />
       <EditDeckNameModal />
