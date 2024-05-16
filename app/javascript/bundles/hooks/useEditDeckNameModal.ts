@@ -63,7 +63,7 @@ export const useEditDeckNameModal = () => {
     if (deckNameInputRef.current && selectedDeckTitle) {
       deckNameInputRef.current.value = selectedDeckTitle;
     }
-  }, [selectedDeckTitle]);
+  }, [isEditDeckNameModalOpen]);
 
   return {
     isEditDeckNameModalOpen,
