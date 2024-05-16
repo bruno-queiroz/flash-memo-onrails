@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'decks-data' => 'decks#index'
   patch 'deck/:id' => 'decks#update'
 
+  post 'cards' => 'cards#create'
+
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   get '/*spa' => 'application#spa'
