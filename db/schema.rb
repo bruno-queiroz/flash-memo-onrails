@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_10_111406) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_16_181728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.string "front", null: false
+    t.string "back", null: false
+    t.boolean "is_reset", default: false
+    t.date "review_at"
+    t.float "ease_factor", null: false
+    t.integer "interval", null: false
+    t.integer "repetitions", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "deck_id", null: false
+    t.index ["deck_id", "front"], name: "index_cards_on_deck_id_and_front", unique: true
+    t.index ["deck_id"], name: "index_cards_on_deck_id"
+  end
 
   create_table "decks", force: :cascade do |t|
     t.string "title"
@@ -34,5 +49,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_111406) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "cards", "decks"
   add_foreign_key "decks", "users"
 end
