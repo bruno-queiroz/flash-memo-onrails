@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   post 'cards' => 'cards#create'
   get 'card/:deck_id' => 'cards#search'
+  patch 'card/:id' => 'cards#update'
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 
