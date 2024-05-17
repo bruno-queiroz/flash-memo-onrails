@@ -9,7 +9,13 @@ import routes from "./routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { CRUDNotification } from "./components/CRUDNotification";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export const App = () => {
   return (
