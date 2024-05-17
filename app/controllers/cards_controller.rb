@@ -53,10 +53,6 @@ class CardsController < ApplicationController
             params.require(:card).permit(:deck_id, :query)
         end
 
-        def card_not_found
-            render :card_not_found, status: :no_content
-        end
-
         def card_not_unique
             render :card_not_unique, status: :unprocessable_entity
         end
