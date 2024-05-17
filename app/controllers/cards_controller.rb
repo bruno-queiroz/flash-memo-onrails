@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+    before_action :set_card, only: %i[ update ]
     rescue_from ActiveRecord::RecordInvalid, with: :card_not_unique
 
     def search
@@ -20,7 +21,15 @@ class CardsController < ApplicationController
         render :create, status: :created
     end
 
+    def update
+        @card.update!(update_card_params)
+    end
+
     private
+        def set_card
+            @card = Card.find(params[:id])
+        end
+
         def card_params
             params.require(:card).permit(
                 :front,
@@ -30,6 +39,10 @@ class CardsController < ApplicationController
                 :repetitions, 
                 :deck_id
             )
+        end
+
+        def update_card_params
+            params.require(:card).permit(:front, :back)
         end
 
         def search_cards_params
