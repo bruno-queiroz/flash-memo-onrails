@@ -22,7 +22,6 @@ module.exports = {
   },
   darkMode: "class",
   plugins: [
-    require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/container-queries"),
