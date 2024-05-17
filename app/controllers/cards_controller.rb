@@ -5,7 +5,7 @@ class CardsController < ApplicationController
         @cards = Card.where(
             "deck_id = :deck_id AND front LIKE :query OR back LIKE :query",
             {
-                deck_id: params[:deck_id], query: params[:q]
+                deck_id: params[:deck_id], query: "%#{params[:q]}%"
             }
         )
 
