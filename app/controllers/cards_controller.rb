@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-    before_action :set_card, only: %i[ update ]
+    before_action :set_card, only: %i[ update destroy ]
     rescue_from ActiveRecord::RecordInvalid, with: :card_not_unique
 
     def search
@@ -23,6 +23,10 @@ class CardsController < ApplicationController
 
     def update
         @card.update!(update_card_params)
+    end
+
+    def destroy
+        @card.destroy!
     end
 
     private
