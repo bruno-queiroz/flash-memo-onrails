@@ -8,14 +8,22 @@ import { LoadSpinner } from "./LoadSpinner";
 import { CardReviewDate } from "./CardReviewDate";
 import { useSearchCardItem } from "../hooks/useSearchCardItem";
 
-export const SearchCardItem = ({ front, back, review_at, id }: SearchCard) => {
+type SearchCardItemProps = SearchCard & { reSearchCards: () => void };
+
+export const SearchCardItem = ({
+  front,
+  back,
+  review_at,
+  id,
+  reSearchCards,
+}: SearchCardItemProps) => {
   const {
     backTextFormatted,
     deleteSelectedCard,
     frontTextFormatted,
     isPending,
     openEditModal,
-  } = useSearchCardItem({ front, back, id });
+  } = useSearchCardItem({ front, back, id, reSearchCards });
 
   return (
     <article className="bg-gray-200 dark:bg-neutral-900 rounded px-4 pb-4">
