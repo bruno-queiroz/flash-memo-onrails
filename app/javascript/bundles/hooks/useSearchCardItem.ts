@@ -9,14 +9,23 @@ import { setSelectedCard } from "../global-state/reducers/selectedCardSlice";
 import { formatText } from "../utils/formatText";
 import { SearchCard } from "../fetch/types";
 
-type UseSearchCardItem = Pick<SearchCard, "front" | "back" | "id">;
+type UseSearchCardItem = Pick<SearchCard, "front" | "back" | "id"> & {
+  reSearchCards: () => void;
+};
 
-export const useSearchCardItem = ({ front, back, id }: UseSearchCardItem) => {
+export const useSearchCardItem = ({
+  front,
+  back,
+  id,
+  reSearchCards,
+}: UseSearchCardItem) => {
   const queryClient = useQueryClient();
   const { mutateAsync: deleteCardMutate, isPending } = useMutation({
     mutationFn: (cardId: string) => deleteCard(cardId),
-    onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: ["searchCards"] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["searchCards"] });
+      reSearchCards();
+    },
   });
 
   const dispatch = useAppDispatch();
