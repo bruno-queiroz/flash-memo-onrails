@@ -68,7 +68,11 @@ export const SearchCards = () => {
               <CardNotFound errorMessage={error?.message} />
             ) : (
               data?.data?.map((card) => (
-                <SearchCardItem {...card} key={card?.id} />
+                <SearchCardItem
+                  {...card}
+                  reSearchCards={reSearchCards}
+                  key={card?.id}
+                />
               ))
             )}
           </div>
