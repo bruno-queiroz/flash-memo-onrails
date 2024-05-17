@@ -17,11 +17,12 @@ export const SearchCards = () => {
     isPending,
     onSearch,
     searchInputRef,
+    reSearchCards,
   } = useSearchCards();
 
   return (
     <>
-      <EditCardModal />
+      <EditCardModal reSearchCards={reSearchCards} />
 
       <section className="flex flex-col items-center p-4 dark:text-gray-300 text-black">
         <h1 className="font-bold text-center text-4xl text-neutral-800 dark:text-white">
