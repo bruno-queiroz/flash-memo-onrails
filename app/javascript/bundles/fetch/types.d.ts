@@ -17,3 +17,10 @@ export interface Deck {
   title: string;
   created_at: string;
 }
+
+export interface SearchCard {
+  id: string;
+  front: string;
+  back: string;
+  review_at: string | null;
+}
