@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   patch 'deck/:id' => 'decks#update'
 
   post 'cards' => 'cards#create'
+  delete 'card/:id' => 'cards#destroy'
   get 'card/:deck_id' => 'cards#search'
   patch 'card/:id' => 'cards#update'
 
