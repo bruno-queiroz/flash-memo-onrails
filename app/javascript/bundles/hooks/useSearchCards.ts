@@ -10,6 +10,7 @@ export const useSearchCards = () => {
 
   const { data, isError, error, isPending, mutate } = useMutation({
     mutationFn: (data: GetSearchedCards) => getSearchedCards(data),
+    mutationKey: ["searchCards"],
   });
 
   const { data: decks } = useQuery({
@@ -25,6 +26,13 @@ export const useSearchCards = () => {
     });
   };
 
+  const reSearchCards = () => {
+    mutate({
+      deckId: deckSelectRef.current?.value,
+      query: searchInputRef.current?.value,
+    });
+  };
+
   return {
     onSearch,
     deckSelectRef,
@@ -34,5 +42,6 @@ export const useSearchCards = () => {
     isError,
     error,
     data,
+    reSearchCards,
   };
 };
