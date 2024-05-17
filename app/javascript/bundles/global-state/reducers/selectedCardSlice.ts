@@ -22,6 +22,6 @@ export const selectedCardSlice = createSlice({
   },
 });
 
-export const { setSelectedCard: setSelectedDeck } = selectedCardSlice.actions;
+export const { setSelectedCard } = selectedCardSlice.actions;
 
 export default selectedCardSlice.reducer;
