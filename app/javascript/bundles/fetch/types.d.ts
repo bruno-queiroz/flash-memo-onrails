@@ -18,9 +18,15 @@ export interface Deck {
   created_at: string;
 }
 
-export interface SearchCard {
+export interface Card {
   id: string;
   front: string;
   back: string;
+  ease_factor: number;
+  interval: number;
+  repetitions: number;
   review_at: string | null;
+  is_reset: boolean;
 }
+
+export type SearchCard = Pick<Card, "id" | "front" | "back" | "review_at">;
