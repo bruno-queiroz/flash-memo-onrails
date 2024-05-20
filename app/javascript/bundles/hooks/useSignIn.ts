@@ -28,11 +28,12 @@ export const useSignIn = () => {
         setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
-
-        if (Object.keys(err?.errors || {}).length === 0) {
+        console.log("error");
+        if (Object.keys(err || {}).length === 0) {
           setError({ Error: ["Something went wrong."] });
+          return;
         }
-        setError(err?.errors);
+        setError(err);
       }
     }
   };

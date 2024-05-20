@@ -30,6 +30,7 @@ export const useSignUp = () => {
 
         if (Object.keys(err?.errors || {}).length === 0) {
           setError({ Error: ["Something went wrong."] });
+          return;
         }
         setError(err?.errors);
       }
