@@ -6,6 +6,20 @@ class DecksController < ApplicationController
         @decks = Deck.where("user_id = ?", current_user.id)
     end
 
+    def due 
+        deck_title = params[:deck_title]
+        user_id = current_user.id
+
+        @cards = Card.joins(:deck)
+        .where(decks: { title: deck_title, user_id: user_id })
+        .where(review_at: nil)
+        .or(
+          Card.joins(:deck)
+              .where(decks: { title: deck_title, user_id: user_id })
+              .where(review_at: Time.current)
+        )
+    end
+
     def create
         params[:deck][:user_id] = current_user.id
         @deck = Deck.create!(deck_params)
