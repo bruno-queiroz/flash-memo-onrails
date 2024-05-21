@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-    before_action :set_card, only: %i[ update destroy ]
+    before_action :set_card, only: %i[ update destroy interval ]
     rescue_from ActiveRecord::RecordInvalid, with: :card_not_unique
 
     def search
@@ -25,6 +25,11 @@ class CardsController < ApplicationController
         @card.update!(update_card_params)
     end
 
+    def interval
+        params[:card][:review_at] = Date.today + params[:card][:interval]
+        @card.update!(update_interval_params)
+    end
+
     def destroy
         @card.destroy!
     end
@@ -47,6 +52,16 @@ class CardsController < ApplicationController
 
         def update_card_params
             params.require(:card).permit(:front, :back)
+        end
+
+        def update_interval_params
+            params.require(:card).permit(
+                :ease_factor, 
+                :interval, 
+                :is_reset, 
+                :repetitions,
+                :review_at
+            )
         end
 
         def search_cards_params
