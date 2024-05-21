@@ -30,7 +30,7 @@ export const useAddCard = () => {
   const submitCard = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const defaults = {
-      ease_factor: 2.5,
+      ease_factor: 1.7,
       interval: 0,
       repetitions: 0,
     };
