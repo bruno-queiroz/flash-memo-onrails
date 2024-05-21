@@ -6,7 +6,7 @@ import { ModalContainer } from "./ModalContainer";
 import { useEditCardModal } from "../hooks/useEditCardModal";
 
 interface EditCardModalProps {
-  reSearchCards: () => void;
+  reSearchCards?: () => void;
 }
 
 export const EditCardModal = ({ reSearchCards }: EditCardModalProps) => {
