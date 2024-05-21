@@ -13,12 +13,14 @@ Rails.application.routes.draw do
   post 'decks' => 'decks#create'
   delete 'deck/:id' => 'decks#destroy'
   get 'decks-data' => 'decks#index'
+  get 'deck/:deck_title' => 'decks#due'
   patch 'deck/:id' => 'decks#update'
 
   post 'cards' => 'cards#create'
   delete 'card/:id' => 'cards#destroy'
   get 'card/:deck_id' => 'cards#search'
   patch 'card/:id' => 'cards#update'
+  patch 'card/interval/:id' => 'cards#interval'
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 
