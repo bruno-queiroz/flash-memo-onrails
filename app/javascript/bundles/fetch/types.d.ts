@@ -15,7 +15,9 @@ export interface User {
 export interface Deck {
   id: string;
   title: string;
-  created_at: string;
+  reset_cards: number;
+  review_cards: number;
+  new_cards: number;
 }
 
 export interface Card {
