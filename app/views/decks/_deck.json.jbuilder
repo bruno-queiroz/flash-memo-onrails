@@ -1,1 +1,1 @@
-json.extract! deck, :id, :title, :created_at
+json.extract! deck, :id, :title, :reset_cards, :new_cards, :review_cards
