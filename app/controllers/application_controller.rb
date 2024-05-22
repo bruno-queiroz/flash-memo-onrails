@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
         def generic_error
             render json: {isOk: false, msg: "Something went wrong."}, status: :internal_server_error
         end
+
+        def authenticate_user!
+            if user_signed_in?
+              super
+            else
+              render json: {isOk: false, msg: "User not logged."}
+            end
+          end
 end
