@@ -46,7 +46,8 @@ class CardsController < ApplicationController
                 :ease_factor, 
                 :interval, 
                 :repetitions, 
-                :deck_id
+                :deck_id,
+                :review_at
             )
         end
 
