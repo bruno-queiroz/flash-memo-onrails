@@ -5,7 +5,13 @@ import { BiDotsVerticalRounded as DotsIcon } from "react-icons/bi";
 import { Deck } from "../fetch/types";
 import { useDeckStatus } from "../hooks/useDeckStatus";
 
-export const DeckStatus = ({ title, id }: Deck) => {
+export const DeckStatus = ({
+  title,
+  id,
+  new_cards,
+  reset_cards,
+  review_cards,
+}: Deck) => {
   const {
     isOptionsActive,
     openDeckOptions,
@@ -25,9 +31,9 @@ export const DeckStatus = ({ title, id }: Deck) => {
 
       <div className="flex gap-6 p-4">
         <div className="flex gap-1">
-          <span className="text-[#05668d] font-semibold">{0}</span>
-          <span className="text-[#00a5cf] font-semibold">{0}</span>
-          <span className="text-[#25a18e] font-semibold">{0}</span>
+          <span className="text-[#05668d] font-semibold">{new_cards}</span>
+          <span className="text-[#00a5cf] font-semibold">{reset_cards}</span>
+          <span className="text-[#25a18e] font-semibold">{review_cards}</span>
         </div>
 
         <div className="flex items-center relative">
