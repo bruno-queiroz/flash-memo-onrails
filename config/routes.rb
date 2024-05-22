@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   post 'decks' => 'decks#create'
   delete 'deck/:id' => 'decks#destroy'
-  get 'decks-data' => 'decks#index'
+  get 'decks/data' => 'decks#index'
   get 'deck/:deck_title' => 'decks#due'
   patch 'deck/:id' => 'decks#update'
 
