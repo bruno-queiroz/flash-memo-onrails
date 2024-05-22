@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
     before_action :set_deck, only: %i[ destroy update ]
+    before_action :authenticate_user!
     rescue_from ActiveRecord::RecordInvalid, with: :deck_not_unique
 
     def index

@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
     before_action :set_card, only: %i[ update destroy interval ]
+    before_action :authenticate_user!
     rescue_from ActiveRecord::RecordInvalid, with: :card_not_unique
 
     def search
