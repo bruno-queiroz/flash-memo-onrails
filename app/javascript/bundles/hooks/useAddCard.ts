@@ -33,6 +33,7 @@ export const useAddCard = () => {
       ease_factor: 1.7,
       interval: 0,
       repetitions: 0,
+      review_at: new Date(1970),
     };
     const newCard = {
       card: {
