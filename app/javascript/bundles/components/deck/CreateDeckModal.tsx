@@ -1,9 +1,9 @@
 import React from "react";
 
-import { LoadSpinner } from "./LoadSpinner";
-import { ModalContainer } from "./ModalContainer";
-import { Input } from "./Input";
-import { useCreateDeckModal } from "../hooks/useCreateDeckModal";
+import { LoadSpinner } from "../LoadSpinner";
+import { ModalContainer } from "../ModalContainer";
+import { Input } from "../Input";
+import { useCreateDeckModal } from "../../hooks/useCreateDeckModal";
 
 export const CreateDeckModal = () => {
   const {

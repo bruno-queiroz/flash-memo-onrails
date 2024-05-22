@@ -1,8 +1,8 @@
 import React from "react";
 
-import { ModalContainer } from "./ModalContainer";
-import { Input } from "./Input";
-import { useEditDeckNameModal } from "../hooks/useEditDeckNameModal";
+import { ModalContainer } from "../ModalContainer";
+import { Input } from "../Input";
+import { useEditDeckNameModal } from "../../hooks/useEditDeckNameModal";
 
 export const EditDeckNameModal = () => {
   const {

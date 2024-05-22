@@ -1,11 +1,11 @@
 import React from "react";
 
-import { DeckStatus } from "../components/DeckStatus";
-import { CreateDeckModal } from "../components/CreateDeckModal";
-import { DeleteDeckModal } from "../components/DeleteDeckModal";
-import { EditDeckNameModal } from "../components/EditDeckNameModal";
-import { DeckSkeleton } from "../components/DeckSkeleton";
-import { DeckMessage } from "../components/DeckMessage";
+import { DeckStatus } from "../components/deck/DeckStatus";
+import { CreateDeckModal } from "../components/deck/CreateDeckModal";
+import { DeleteDeckModal } from "../components/deck/DeleteDeckModal";
+import { EditDeckNameModal } from "../components/deck/EditDeckNameModal";
+import { DeckSkeleton } from "../components/deck/DeckSkeleton";
+import { DeckMessage } from "../components/deck/DeckMessage";
 
 import { useDecks } from "../hooks/useDecks";
 

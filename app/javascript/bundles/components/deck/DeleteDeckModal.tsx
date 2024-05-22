@@ -1,8 +1,8 @@
 import React from "react";
 
-import { LoadSpinner } from "./LoadSpinner";
-import { ModalContainer } from "./ModalContainer";
-import { useDeckDeleteModal } from "../hooks/useDeleteDeckModal";
+import { LoadSpinner } from "../LoadSpinner";
+import { ModalContainer } from "../ModalContainer";
+import { useDeckDeleteModal } from "../../hooks/useDeleteDeckModal";
 
 export const DeleteDeckModal = () => {
   const {

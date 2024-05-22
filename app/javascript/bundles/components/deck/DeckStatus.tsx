@@ -2,8 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import { BiDotsVerticalRounded as DotsIcon } from "react-icons/bi";
-import { Deck } from "../fetch/types";
-import { useDeckStatus } from "../hooks/useDeckStatus";
+import { Deck } from "../../fetch/types";
+import { useDeckStatus } from "../../hooks/useDeckStatus";
 
 export const DeckStatus = ({
   title,
