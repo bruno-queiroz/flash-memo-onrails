@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 
-import { SearchCard } from "../fetch/types";
+import { SearchCard } from "../../fetch/types";
 
 import { RiDeleteBin7Line as DeleteIcon } from "react-icons/ri";
 
-import { LoadSpinner } from "./LoadSpinner";
+import { LoadSpinner } from "../LoadSpinner";
 import { CardReviewDate } from "./CardReviewDate";
-import { useSearchCardItem } from "../hooks/useSearchCardItem";
+import { useSearchCardItem } from "../../hooks/useSearchCardItem";
 
 type SearchCardItemProps = SearchCard & { reSearchCards: () => void };
 

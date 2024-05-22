@@ -1,8 +1,8 @@
 import React from "react";
 
-import { SearchCardItem } from "../components/SearchCardItem";
-import { CardNotFound } from "../components/CardNotFound";
-import { EditCardModal } from "../components/EditCardModal";
+import { SearchCardItem } from "../components/card/SearchCardItem";
+import { CardNotFound } from "../components/card/CardNotFound";
+import { EditCardModal } from "../components/card/EditCardModal";
 import { LoadingDots } from "../components/LoadingDots";
 
 import { useSearchCards } from "../hooks/useSearchCards";

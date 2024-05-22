@@ -2,10 +2,10 @@ import React from "react";
 
 import { TiArrowBack as BackIcon } from "react-icons/ti";
 
-import { EditCardModal } from "../components/EditCardModal";
+import { EditCardModal } from "../components/card/EditCardModal";
 import { CRUDNotification } from "../components/CRUDNotification";
 import { LoadSpinner } from "../components/LoadSpinner";
-import { CardsCounterSkeleton } from "../components/CardsCounterSkeleton";
+import { CardsCounterSkeleton } from "../components/card/CardsCounterSkeleton";
 
 import {
   EASY_QUALITY_VALUE,

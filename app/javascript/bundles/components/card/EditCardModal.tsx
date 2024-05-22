@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 
-import { Form } from "./Form";
-import { LoadSpinner } from "./LoadSpinner";
-import { ModalContainer } from "./ModalContainer";
-import { useEditCardModal } from "../hooks/useEditCardModal";
+import { Form } from "../Form";
+import { LoadSpinner } from "../LoadSpinner";
+import { ModalContainer } from "../ModalContainer";
+import { useEditCardModal } from "../../hooks/useEditCardModal";
 
 interface EditCardModalProps {
   reSearchCards?: () => void;
