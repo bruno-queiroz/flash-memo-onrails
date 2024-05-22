@@ -3,7 +3,17 @@ class DecksController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :deck_not_unique
 
     def index
-        @decks = Deck.where("user_id = ?", current_user.id)
+        @decks = Deck.joins(:cards)
+            .where(user_id: current_user.id)
+            .where('cards.review_at < now() OR cards.review_at IS NULL')
+            .select(
+                'decks.title',
+                'MAX(decks.id) AS id',
+                'COUNT(CASE WHEN cards.is_reset = \'t\' THEN 1 ELSE NULL END) AS reset_cards',
+                'COUNT(CASE WHEN cards.is_reset = \'f\' AND cards.repetitions = 0 THEN 1 ELSE NULL END) AS new_cards',
+                'COUNT(CASE WHEN cards.is_reset = \'f\' AND cards.repetitions >= 1 THEN 1 ELSE NULL END) AS review_cards'
+            ).group('decks.title')
+
     end
 
     def due 
