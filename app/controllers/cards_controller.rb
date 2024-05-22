@@ -26,7 +26,12 @@ class CardsController < ApplicationController
     end
 
     def interval
-        params[:card][:review_at] = Date.today + params[:card][:interval]
+        if params[:card][:is_reset]
+            params[:card][:review_at] = Time.utc(1970)
+        else
+            params[:card][:review_at] = Date.today + params[:card][:interval]
+        end
+        
         @card.update!(update_interval_params)
     end
 
