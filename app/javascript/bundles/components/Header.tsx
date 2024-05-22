@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 import { IoCloseSharp as CloseIcon } from "react-icons/io5";
 import { GiHamburgerMenu as MenuIcon } from "react-icons/gi";
 
