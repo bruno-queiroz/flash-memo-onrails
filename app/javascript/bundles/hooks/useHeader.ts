@@ -18,6 +18,20 @@ export const useHeader = (isUserSignedIn: boolean) => {
     setIsLoggingOut(true);
   };
 
+  const redirectIfNotLogged = () => {
+    if (window.location.href.endsWith("sign-in")) return;
+    if (window.location.href.endsWith("sign-up")) return;
+    if (window.location.href.endsWith("/")) return;
+
+    window.location.href = "/";
+  };
+
+  useEffect(() => {
+    if (!isUserSignedIn) {
+      redirectIfNotLogged();
+    }
+  }, [isUserSignedIn]);
+
   useEffect(() => {
     if (
       localStorage.theme === "dark" ||
