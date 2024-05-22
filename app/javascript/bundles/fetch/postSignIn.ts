@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config";
 import { User } from "./types";
 
 export interface UserForm {
@@ -9,7 +10,7 @@ export interface UserForm {
 }
 
 export const postSignIn = async (user: UserForm) => {
-  const response = await fetch(`http://127.0.0.1:3000/sign-in.json`, {
+  const response = await fetch(`${BASE_URL}/sign-in.json`, {
     method: "POST",
     redirect: "manual",
     headers: {

@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config";
 import { ServerResponse } from "./types";
 
 export interface RenameDeckParams {
@@ -9,7 +10,7 @@ export const patchRenameDeck = async ({
   deckId,
   deckTitle,
 }: RenameDeckParams) => {
-  const response = await fetch(`http://127.0.0.1:3000/deck/${deckId}`, {
+  const response = await fetch(`${BASE_URL}/deck/${deckId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

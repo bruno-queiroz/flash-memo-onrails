@@ -1,7 +1,8 @@
+import { BASE_URL } from "./config";
 import { ServerResponse } from "./types";
 
 export const getStudyDeck = async (deckTitle: string) => {
-  const response = await fetch(`http://127.0.0.1:3000/deck/${deckTitle}`, {
+  const response = await fetch(`${BASE_URL}/deck/${deckTitle}`, {
     credentials: "include",
   });
   const data: ServerResponse<any> = await response.json();

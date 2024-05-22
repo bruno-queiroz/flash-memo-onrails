@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config";
 import { SearchCard, ServerResponse } from "./types";
 
 export interface GetSearchedCards {
@@ -6,12 +7,9 @@ export interface GetSearchedCards {
 }
 
 export const getSearchedCards = async ({ deckId, query }: GetSearchedCards) => {
-  const response = await fetch(
-    `http://127.0.0.1:3000/card/${deckId}?q=${query}`,
-    {
-      credentials: "include",
-    }
-  );
+  const response = await fetch(`${BASE_URL}/card/${deckId}?q=${query}`, {
+    credentials: "include",
+  });
   const data: ServerResponse<SearchCard[]> = await response.json();
 
   if (!data?.isOk || data?.data.length === 0) {

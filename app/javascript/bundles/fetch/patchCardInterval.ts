@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config";
 import { Card, ServerResponse } from "./types";
 
 export const patchCardInterval = async ({
@@ -7,7 +8,7 @@ export const patchCardInterval = async ({
   is_reset,
   repetitions,
 }: Card) => {
-  const response = await fetch(`http://127.0.0.1:3000/card/interval/${id}`, {
+  const response = await fetch(`${BASE_URL}/card/interval/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

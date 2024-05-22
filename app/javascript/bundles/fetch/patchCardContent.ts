@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config";
 import { ServerResponse } from "./types";
 
 export interface PatchCardContent {
@@ -9,7 +10,7 @@ export interface PatchCardContent {
 }
 
 export const patchCardContent = async ({ cardId, card }: PatchCardContent) => {
-  const response = await fetch(`http://127.0.0.1:3000/card/${cardId}`, {
+  const response = await fetch(`${BASE_URL}/card/${cardId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config";
 import { ServerResponse } from "./types";
 
 export interface CreateCard {
@@ -11,7 +12,7 @@ export interface CreateCard {
   };
 }
 export const createCard = async (newCard: CreateCard) => {
-  const response = await fetch("http://127.0.0.1:3000/cards", {
+  const response = await fetch(`${BASE_URL}/cards`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

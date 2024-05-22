@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config";
 import { ServerResponse } from "./types";
 
 export interface PostDeckParams {
@@ -6,7 +7,7 @@ export interface PostDeckParams {
   };
 }
 export const postDeck = async (newDeck: PostDeckParams) => {
-  const response = await fetch("http://127.0.0.1:3000/decks", {
+  const response = await fetch(`${BASE_URL}/decks`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
