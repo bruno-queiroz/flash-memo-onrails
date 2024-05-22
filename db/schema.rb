@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_16_181728) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_22_142325) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_16_181728) do
     t.string "front", null: false
     t.string "back", null: false
     t.boolean "is_reset", default: false
-    t.date "review_at"
+    t.date "review_at", null: false
     t.float "ease_factor", null: false
     t.integer "interval", null: false
     t.integer "repetitions", null: false
