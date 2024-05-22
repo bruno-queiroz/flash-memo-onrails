@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IoCloseSharp as CloseIcon } from "react-icons/io5";
 import { GiHamburgerMenu as MenuIcon } from "react-icons/gi";
 
@@ -20,7 +20,7 @@ export const Header = ({ isUserSignedIn }: HeaderProps) => {
     changeTheme,
     isDarkMode,
     logOut,
-  } = useHeader();
+  } = useHeader(isUserSignedIn);
 
   return (
     <header className="max-w-[1100px] p-4 mx-auto dark:bg-neutral-800 bg-white">
@@ -97,7 +97,7 @@ export const Header = ({ isUserSignedIn }: HeaderProps) => {
           >
             <div
               className={`w-[50%] h-full transition-transform rounded-[100%] bg-aqua-blue ${
-                !isDarkMode ? "dark-theme-animation" : "light-theme-animation"
+                isDarkMode ? "dark-theme-animation" : "light-theme-animation"
               }`}
             />
           </button>
