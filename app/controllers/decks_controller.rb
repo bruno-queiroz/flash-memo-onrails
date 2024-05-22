@@ -3,17 +3,15 @@ class DecksController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :deck_not_unique
 
     def index
-        @decks = Deck.joins(:cards)
+        @decks = Deck.left_outer_joins(:cards)
             .where(user_id: current_user.id)
-            .where('cards.review_at < now() OR cards.review_at IS NULL')
             .select(
                 'decks.title',
                 'MAX(decks.id) AS id',
-                'COUNT(CASE WHEN cards.is_reset = \'t\' THEN 1 ELSE NULL END) AS reset_cards',
-                'COUNT(CASE WHEN cards.is_reset = \'f\' AND cards.repetitions = 0 THEN 1 ELSE NULL END) AS new_cards',
-                'COUNT(CASE WHEN cards.is_reset = \'f\' AND cards.repetitions >= 1 THEN 1 ELSE NULL END) AS review_cards'
+                'COUNT(CASE WHEN cards.is_reset = \'t\' AND review_at < now() THEN 1 ELSE NULL END) AS reset_cards',
+                'COUNT(CASE WHEN cards.is_reset = \'f\' AND cards.repetitions = 0 AND review_at < now() THEN 1 ELSE NULL END) AS new_cards',
+                'COUNT(CASE WHEN cards.is_reset = \'f\' AND cards.repetitions >= 1 AND review_at < now() THEN 1 ELSE NULL END) AS review_cards'
             ).group('decks.title')
-
     end
 
     def due 
@@ -21,13 +19,8 @@ class DecksController < ApplicationController
         user_id = current_user.id
 
         @cards = Card.joins(:deck)
-        .where(decks: { title: deck_title, user_id: user_id })
-        .where(review_at: nil)
-        .or(
-          Card.joins(:deck)
-              .where(decks: { title: deck_title, user_id: user_id })
-              .where(review_at: Time.current)
-        )
+            .where(decks: { title: deck_title, user_id: user_id })
+            .where('cards.review_at < now()')
     end
 
     def create
