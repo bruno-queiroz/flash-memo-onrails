@@ -4,12 +4,10 @@ class CardsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :card_not_unique
 
     def search
-        @cards = Card.where(
-            "deck_id = :deck_id AND front LIKE :query OR back LIKE :query",
-            {
-                deck_id: params[:deck_id], query: "%#{params[:q]}%"
-            }
-        )
+        @cards = Card.where(deck_id: params[:deck_id])
+            .where("front LIKE :query OR back LIKE :query", {
+                query: params[:q]
+            })
 
         if @cards.length == 0
             render :card_not_found
