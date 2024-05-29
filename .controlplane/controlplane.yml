@@ -1,0 +1,8 @@
+apps:
+  flash-memo:
+    default_location: aws-us-west-2
+    one_off_workload: rails
+    app_workloads:
+      - rails
+    cpln_org: demo-bruno-queiroz-candidate
+    release_script: release_script.sh
