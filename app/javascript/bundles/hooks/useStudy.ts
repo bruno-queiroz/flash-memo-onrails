@@ -128,6 +128,7 @@ export const useStudy = () => {
 
       setCardsCounter(countCards(cards));
       setCurrentCard(cards[cards.length - 1]);
+      setIsShowingAnswer(false);
     } catch (err) {
       cards.push(card);
       reviewedCards.pop();
@@ -156,6 +157,7 @@ export const useStudy = () => {
 
       setCardsCounter(countCards(cards));
       setCurrentCard(cards[cards.length - 1]);
+      setIsShowingAnswer(false);
     } catch (err) {
       card.is_reset = false;
       cards.push(card);
@@ -186,6 +188,7 @@ export const useStudy = () => {
 
     setCurrentCard(reviewedCard);
     setCardsCounter(countCards(cards));
+    setIsShowingAnswer(false);
   };
 
   return {
