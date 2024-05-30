@@ -10,14 +10,12 @@
     <%= favicon_link_tag 'favicon.ico' %>
     
     <%= javascript_pack_tag 'client-bundle' %>
-    <%= stylesheet_pack_tag 'client-bundle' %>
-
+    
     <meta name="description" content="Flash Memo can help you improve your vocabulary, ace exams, enhance your study skills and achieve even more.">
   </head>
 
   <body class="dark:bg-neutral-800 bg-white">
     <main class="container mx-auto">
-      <%= react_component("Header", props: {isUserSignedIn: user_signed_in?}, prerender: true) %>
       <%= yield %>
     </main>
   </body>
