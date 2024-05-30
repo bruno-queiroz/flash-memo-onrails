@@ -1,3 +1,31 @@
+<header class="flex gap-4 items-center justify-between p-4">
+    <a 
+        href="/"
+        class="dark:text-white text-neutral-800 text-2xl font-bold"
+    >
+        Flash Memo
+    </a>
+    
+    <% if user_signed_in?  %>
+        <a
+            href="/decks"
+            class="px-4 py-2 text-white font-semibold rounded bg-light-blue"
+        >
+            Go to decks
+        </a>
+    <% end %>  
+   
+    <% if !user_signed_in?  %>
+        <a
+            href="/sign-in"
+            class="px-4 py-2 text-white font-semibold rounded bg-light-blue"
+        >
+            Sign in
+        </a>
+    <% end %>  
+
+</header>
+
 <section class="flex flex-col">
     <main class="flex flex-col gap-6 items-center text-center py-36 px-4 dark:bg-neutral-800 bg-white">
         <div class="max-w-[600px]">
