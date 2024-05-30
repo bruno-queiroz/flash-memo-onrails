@@ -25,5 +25,5 @@ export const postSignIn = async (user: UserForm) => {
     throw data;
   }
 
-  window.location.href = "/";
+  window.location.href = "/decks";
 };
