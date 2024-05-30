@@ -8,9 +8,9 @@ import { SearchCards } from "./pages/SearchCards";
 import { Study } from "./pages/Study";
 import { Header } from "./components/Header";
 
-export default (
+export const SpaRoutes = ({ isUserSignedIn }: { isUserSignedIn: boolean }) => (
   <>
-    <Header isUserSignedIn={true} />
+    <Header isUserSignedIn={isUserSignedIn} />
     <Routes>
       <Route path="/decks" element={<Decks />} />
       <Route path="/add" element={<AddCard />} />
