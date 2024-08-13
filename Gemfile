@@ -59,6 +59,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "rspec-rails", "~> 6.1.0"
+  gem "factory_bot", "~> 6.4"
 end
 
 gem "shakapacker", "= 7.2"
