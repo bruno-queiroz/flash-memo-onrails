@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User' do           
-    it 'User Should NOT create user successfully.' do   
+    it 'Should create user successfully.' do   
       user = FactoryBot.create(:user)
 
       expect(user).to be_valid
