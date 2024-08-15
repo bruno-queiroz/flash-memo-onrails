@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'User' do           
-    it 'Should create user successfully.' do   
+RSpec.describe "User" do           
+    it "Should create user successfully." do   
       user = FactoryBot.create(:user)
 
       expect(user).to be_valid
