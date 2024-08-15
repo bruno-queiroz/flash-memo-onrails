@@ -1,2 +1,2 @@
 json.isOk false
-json.msg "Something went wrong."
+json.msg 'Something went wrong.'

@@ -1,2 +1,2 @@
 json.isOk true
-json.msg "Deck created successfully."
+json.msg 'Deck created successfully.'

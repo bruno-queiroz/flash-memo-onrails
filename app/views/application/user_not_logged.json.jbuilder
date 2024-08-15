@@ -1,2 +1,2 @@
 json.isOk false
-json.msg "The user is not logged in."
+json.msg 'The user is not logged in.'

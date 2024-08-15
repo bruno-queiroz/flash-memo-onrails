@@ -1,2 +1,2 @@
 json.isOk true
-json.msg "Card deleted successfully."
+json.msg 'Card deleted successfully.'

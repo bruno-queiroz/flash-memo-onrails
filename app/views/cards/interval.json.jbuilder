@@ -1,3 +1,2 @@
 json.isOk true
-json.msg "Interval patched successfully."
-
+json.msg 'Interval patched successfully.'

@@ -1,2 +1,2 @@
 json.isOk false
-json.msg "Card was not found."
+json.msg 'Card was not found.'

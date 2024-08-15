@@ -1,2 +1,2 @@
 json.isOk true
-json.msg "Card created successfully."
+json.msg 'Card created successfully.'

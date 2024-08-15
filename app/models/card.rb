@@ -1,10 +1,10 @@
 class Card < ApplicationRecord
-    belongs_to :deck
+  belongs_to :deck
 
-    validates :front, presence: true, uniqueness: { scope: :deck_id }
-    validates :back, presence: true
-    validates :review_at, presence: true
-    validates :ease_factor, presence: true
-    validates :interval, presence: true
-    validates :repetitions, presence: true
+  validates :front, presence: true, uniqueness: { scope: :deck_id }
+  validates :back, presence: true
+  validates :review_at, presence: true
+  validates :ease_factor, presence: true
+  validates :interval, presence: true
+  validates :repetitions, presence: true
 end

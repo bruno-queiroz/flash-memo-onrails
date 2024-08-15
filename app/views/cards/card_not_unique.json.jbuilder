@@ -1,2 +1,2 @@
 json.isOk false
-json.msg "You already have this card."
+json.msg 'You already have this card.'

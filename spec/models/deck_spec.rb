@@ -1,27 +1,27 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe "Deck" do 
-    it "Should create deck successfully." do   
-        user = FactoryBot.create(:user)
-        deck = FactoryBot.create(:deck, user: user)
-  
-        expect(deck).to be_valid
-      end
+RSpec.describe 'Deck' do
+  it 'Should create deck successfully.' do
+    user = FactoryBot.create(:user)
+    deck = FactoryBot.create(:deck, user:)
 
-    it "User should not have two decks with same title." do
-        user = FactoryBot.create(:user)
-        deck = FactoryBot.create(:deck, user: user)
+    expect(deck).to be_valid
+  end
 
-        expect {FactoryBot.create(:deck, user: user)}.to raise_error(ActiveRecord::RecordInvalid)
-    end
+  it 'User should not have two decks with same title.' do
+    user = FactoryBot.create(:user)
+    deck = FactoryBot.create(:deck, user:)
 
-    it "2 Different users should be able to have decks with same title." do
-        user = FactoryBot.create(:user)
-        user2 = FactoryBot.create(:user, {name: "user2"})
+    expect { FactoryBot.create(:deck, user:) }.to raise_error(ActiveRecord::RecordInvalid)
+  end
 
-        deck = FactoryBot.create(:deck, user: user)
-        deck2 = FactoryBot.create(:deck, user: user2)
+  it '2 Different users should be able to have decks with same title.' do
+    user = FactoryBot.create(:user)
+    user2 = FactoryBot.create(:user, { name: 'user2' })
 
-        expect(deck2).to be_valid
-    end
+    deck = FactoryBot.create(:deck, user:)
+    deck2 = FactoryBot.create(:deck, user: user2)
+
+    expect(deck2).to be_valid
+  end
 end
