@@ -11,16 +11,16 @@ Rails.application.routes.draw do
   end
 
   post 'decks' => 'decks#create'
-  delete 'deck/:id' => 'decks#destroy'
+  delete 'decks/:id' => 'decks#destroy'
   get 'decks/data' => 'decks#index'
-  get 'deck/:deck_title' => 'decks#due'
-  patch 'deck/:id' => 'decks#update'
+  get 'decks/:deck_title' => 'decks#due'
+  patch 'decks/:id' => 'decks#update'
 
   post 'cards' => 'cards#create'
-  delete 'card/:id' => 'cards#destroy'
-  get 'card/:deck_id' => 'cards#search'
-  patch 'card/:id' => 'cards#update'
-  patch 'card/interval/:id' => 'cards#interval'
+  delete 'cards/:id' => 'cards#destroy'
+  get 'cards/:deck_id' => 'cards#search'
+  patch 'cards/:id' => 'cards#update'
+  patch 'cards/interval/:id' => 'cards#interval'
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 
