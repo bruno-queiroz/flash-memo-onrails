@@ -8,7 +8,7 @@ export const patchCardInterval = async ({
   is_reset,
   repetitions,
 }: Card) => {
-  const response = await fetch(`${BASE_URL}/card/interval/${id}`, {
+  const response = await fetch(`${BASE_URL}/cards/interval/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

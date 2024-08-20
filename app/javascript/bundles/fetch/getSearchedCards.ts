@@ -7,7 +7,7 @@ export interface GetSearchedCards {
 }
 
 export const getSearchedCards = async ({ deckId, query }: GetSearchedCards) => {
-  const response = await fetch(`${BASE_URL}/card/${deckId}?q=${query}`, {
+  const response = await fetch(`${BASE_URL}/cards/${deckId}?q=${query}`, {
     credentials: "include",
   });
   const data: ServerResponse<SearchCard[]> = await response.json();

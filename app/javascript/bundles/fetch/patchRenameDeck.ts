@@ -10,7 +10,7 @@ export const patchRenameDeck = async ({
   deckId,
   deckTitle,
 }: RenameDeckParams) => {
-  const response = await fetch(`${BASE_URL}/deck/${deckId}`, {
+  const response = await fetch(`${BASE_URL}/decks/${deckId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

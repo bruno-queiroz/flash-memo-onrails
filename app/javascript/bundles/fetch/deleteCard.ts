@@ -2,7 +2,7 @@ import { BASE_URL } from "./config";
 import { ServerResponse } from "./types";
 
 export const deleteCard = async (cardId: string) => {
-  const response = await fetch(`${BASE_URL}/card/${cardId}`, {
+  const response = await fetch(`${BASE_URL}/cards/${cardId}`, {
     method: "DELETE",
     credentials: "include",
   });

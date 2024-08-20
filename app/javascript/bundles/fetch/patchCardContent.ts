@@ -10,7 +10,7 @@ export interface PatchCardContent {
 }
 
 export const patchCardContent = async ({ cardId, card }: PatchCardContent) => {
-  const response = await fetch(`${BASE_URL}/card/${cardId}`, {
+  const response = await fetch(`${BASE_URL}/cards/${cardId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

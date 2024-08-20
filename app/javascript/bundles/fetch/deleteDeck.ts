@@ -2,7 +2,7 @@ import { BASE_URL } from "./config";
 import { ServerResponse } from "./types";
 
 export const deleteDeck = async (deckId: string) => {
-  const response = await fetch(`${BASE_URL}/deck/${deckId}`, {
+  const response = await fetch(`${BASE_URL}/decks/${deckId}`, {
     method: "DELETE",
     credentials: "include",
   });
