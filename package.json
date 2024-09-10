@@ -10,6 +10,7 @@
     "@babel/runtime": "7",
     "@reduxjs/toolkit": "^2.2.4",
     "@rescript/core": "^1.5.2",
+    "@rescript/react": "^0.13.0",
     "@tanstack/react-query": "^5.35.1",
     "@types/babel__core": "7",
     "@types/react": "^18.3.0",
