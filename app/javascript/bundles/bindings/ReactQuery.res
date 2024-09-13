@@ -13,16 +13,24 @@ type queries = {refetchOnWindowFocus: bool}
 
 type defaultOptions = {queries: queries}
 
-type queryClient = {defaultOptions: defaultOptions}
+type queryClientConfig = {defaultOptions: defaultOptions}
+
+type invalidateQueriesFilter = {queryKey: array<string>}
+
+type queryClient = {invalidateQueries: invalidateQueriesFilter => unit}
 
 @module("@tanstack/react-query")
 external useQuery: useQueryParams<'a> => useQueryReturnValues<'a> = "useQuery"
 
 @new @module("@tanstack/react-query")
-external queryClient: queryClient => queryClient = "QueryClient"
+external queryClient: queryClientConfig => queryClientConfig = "QueryClient"
 
 module QueryClientProvider = {
   @react.component @module("@tanstack/react-query")
-  external make: (~client: queryClient, ~children: React.element) => React.element =
+  external make: (~client: queryClientConfig, ~children: React.element) => React.element =
     "QueryClientProvider"
 }
+
+@module("@tanstack/react-query")
+external useQueryClient: unit => queryClient = "useQueryClient"
+@send external invalidateQueries: invalidateQueriesFilter => unit = "invalidateQueries"
