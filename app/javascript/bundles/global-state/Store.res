@@ -1,7 +1,8 @@
-type store = {card: DeckSlice.initialState}
+type t = {deck: DeckSlice.initialState, selectedDeck: SelectedDeckSlice.initialState}
 
 let store = Redux.configureStore({
   reducer: {
-    card: DeckSlice.deckReducer,
+    deck: DeckSlice.deckReducer,
+    selectedDeck: SelectedDeckSlice.selectedDeckReducer,
   },
 })
