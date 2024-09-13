@@ -11,9 +11,9 @@ type slice<'initialState, 'actions> = {
 
 type configureStore<'reducers> = {reducer: 'reducers}
 
-type useDispatch = {withTypes: unit => unit}
+type useDispatch<'a> = {withTypes: 'a}
 
-type useSelector = {withTypes: unit => unit}
+type useSelector<'a> = {withTypes: 'a}
 
 type action<'payload> = {type_: string, payload: 'payload}
 
@@ -26,9 +26,9 @@ external createSlice: createSlice<'initialState, 'reducers> => slice<'initialSta
 external configureStore: configureStore<'reducers> => 'reducers = "configureStore"
 
 @module("react-redux")
-external useDispatch: useDispatch = "useDispatch"
+external useDispatch: useDispatch<'a> = "useDispatch"
 
 @module("react-redux")
-external useSelector: useSelector = "useSelector"
+external useSelector: useSelector<'a> = "useSelector"
 
-@send external withTypes: 'a => 'b = "withTypes"
+@send external withTypes: 'a => 'a = "withTypes"
