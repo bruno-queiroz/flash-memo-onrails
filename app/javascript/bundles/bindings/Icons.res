@@ -12,3 +12,8 @@ module MoonIcon = {
   @react.component @module("react-icons/bs")
   external make: unit => React.element = "BsFillMoonFill"
 }
+
+module SunIcon = {
+  @react.component @module("react-icons/bs")
+  external make: unit => React.element = "BsFillSunFill"
+}
