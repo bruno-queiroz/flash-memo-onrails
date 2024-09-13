@@ -32,3 +32,8 @@ external useDispatch: useDispatch<'a> = "useDispatch"
 external useSelector: useSelector<'a> = "useSelector"
 
 @send external withTypes: 'a => 'a = "withTypes"
+
+module Provider = {
+  @react.component @module("react-redux")
+  external make: (~store: 'a, ~children: React.element) => React.element = "Provider"
+}
