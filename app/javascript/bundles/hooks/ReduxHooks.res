@@ -1,7 +1,3 @@
-let useAppDispatch = () => {
-  Redux.useDispatch.withTypes()
-}
+let useAppDispatch = Redux.useDispatch.withTypes()
 
-let useAppSelector = () => {
-  Redux.useSelector.withTypes()
-}
+let useAppSelector = Redux.useSelector.withTypes()
