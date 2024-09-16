@@ -2,7 +2,7 @@ type classList = {toggle: string => unit, add: string => unit, remove: string =>
 
 type documentElement = {classList: classList}
 
-type document = {documentElement: documentElement}
+type document = {documentElement: documentElement, value: string}
 
 type localStorage = {setItem: (string, string) => unit, getItem: string => option<string>}
 
@@ -12,6 +12,8 @@ type matchMedia = {matches: bool}
 
 type window = {location: location, matchMedia: string => matchMedia}
 
+type event = {preventDefault: unit => unit}
+
 @val external document: document = "document"
 @send external toggle: string => unit = "toggle"
 
@@ -20,3 +22,5 @@ type window = {location: location, matchMedia: string => matchMedia}
 
 @val external window: window = "window"
 @send external matchMedia: string => matchMedia = "matchMedia"
+
+@val external event: event = "event"
