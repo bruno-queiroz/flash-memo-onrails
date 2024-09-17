@@ -11,9 +11,9 @@ type slice<'initialState, 'actions> = {
 
 type configureStore<'reducers> = {reducer: 'reducers}
 
-type useDispatch<'a> = {withTypes: 'a}
+type useDispatch<'a> = 'a
 
-type useSelector<'a> = {withTypes: 'a}
+type useSelector<'a> = 'a
 
 type action<'payload> = {type_: string, payload: 'payload}
 
@@ -30,8 +30,6 @@ external useDispatch: useDispatch<'a> = "useDispatch"
 
 @module("react-redux")
 external useSelector: useSelector<'a> = "useSelector"
-
-@send external withTypes: 'a => 'a = "withTypes"
 
 module Provider = {
   @react.component @module("react-redux")
