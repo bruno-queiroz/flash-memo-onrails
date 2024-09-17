@@ -17,3 +17,8 @@ module SunIcon = {
   @react.component @module("react-icons/bs")
   external make: unit => React.element = "BsFillSunFill"
 }
+
+module MenuIcon = {
+  @react.component @module("react-icons/gi")
+  external make: unit => React.element = "GiHamburgerMenu"
+}
