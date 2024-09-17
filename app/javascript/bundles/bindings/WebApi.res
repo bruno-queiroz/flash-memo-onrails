@@ -2,7 +2,7 @@ type classList = {toggle: string => unit, add: string => unit, remove: string =>
 
 type documentElement = {classList: classList}
 
-type document = {documentElement: documentElement, value: string}
+type document = {documentElement: documentElement, value: string, focus: unit => unit}
 
 type localStorage = {setItem: (string, string) => unit, getItem: string => option<string>}
 
@@ -12,7 +12,7 @@ type matchMedia = {matches: bool}
 
 type window = {location: location, matchMedia: string => matchMedia}
 
-type event = {preventDefault: unit => unit}
+type event = {preventDefault: unit => unit, animationName: string}
 
 @val external document: document = "document"
 @send external toggle: string => unit = "toggle"
