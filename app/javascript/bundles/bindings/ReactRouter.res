@@ -15,6 +15,6 @@ module Route = {
 
 module Link = {
   @react.component @module("react-router-dom")
-  external make: (~children: React.element, ~to: string, ~className: string) => React.element =
+  external make: (~children: React.element, ~to: string, ~className: string=?) => React.element =
     "Link"
 }
