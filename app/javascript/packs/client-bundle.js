@@ -1,13 +1,9 @@
 import ReactOnRails from "react-on-rails";
+import { make as App } from "../bundles/App.res.mjs"
+import { make as SignIn } from "../bundles/pages/SignIn.res.mjs"
 
-import { Header } from "../bundles/components/Header";
-import { SignUp } from "../bundles/pages/SignUp";
-import { SignIn } from "../bundles/pages/SignIn";
-import { App } from "../bundles/App";
 
 ReactOnRails.register({
-  SignUp,
-  SignIn,
-  Header,
-  App,
+ App,
+ SignIn
 });

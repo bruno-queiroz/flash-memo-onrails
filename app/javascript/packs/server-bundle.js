@@ -1,9 +1,6 @@
 import ReactOnRails from "react-on-rails";
-
-import { SignIn } from "../bundles/pages/SignIn";
-import { SignUp } from "../bundles/pages/SignUp";
+import { make as SignIn } from "../bundles/pages/SignIn.res.mjs"
 
 ReactOnRails.register({
   SignIn,
-  SignUp,
 });
