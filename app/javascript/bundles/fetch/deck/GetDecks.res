@@ -7,7 +7,7 @@ let params = {
 }
 
 let get = async () => {
-  let response = await Fetch.fetch("/decks", params)
+  let response = await Fetch.fetch("/decks/data.json", params)
   let data: Fetch.defaultResponse<array<Types.deck>> = await Fetch.json(response)
 
   switch (data["isOk"]->Nullable.toOption, data["msg"]->Nullable.toOption) {
