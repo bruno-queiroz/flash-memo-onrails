@@ -37,6 +37,6 @@ type event = {preventDefault: unit => unit, animationName: string, target: docum
 @val external window: window = "window"
 @send external matchMedia: string => matchMedia = "matchMedia"
 
-// @send external addEventListener: (string, eventListener => unit) => unit = "addEventListener"
+@new external date: int => Js.Date.t = "Date"
 
 @val external event: event = "event"
