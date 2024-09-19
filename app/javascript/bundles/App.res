@@ -10,6 +10,7 @@ let queryClient = ReactQuery.queryClient({
 let make = () => {
   <ReactQuery.QueryClientProvider client=queryClient>
     <Redux.Provider store=Store.store>
+      <Notification />
       <ReactRouter.BrowserRouter>
         <Routes />
       </ReactRouter.BrowserRouter>
