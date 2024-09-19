@@ -40,3 +40,5 @@ type event = {preventDefault: unit => unit, animationName: string, target: docum
 @new external date: int => Js.Date.t = "Date"
 
 @val external event: event = "event"
+
+@scope("window") @val external setTimeout: (unit => unit, int) => unit = "setTimeout"
