@@ -6,6 +6,12 @@ let params = {
   },
 }
 
+type response = {
+  isOk: bool,
+  msg: string,
+  data: array<Types.deck>,
+}
+
 let get = async () => {
   let response = await Fetch.fetch("/decks/data.json", params)
   let data: Fetch.defaultResponse<array<Types.deck>> = await Fetch.json(response)
@@ -16,5 +22,6 @@ let get = async () => {
   | _ => Exn.raiseError("something went wrong")
   }
 
+  let data = (Obj.magic(data): response)
   data
 }
