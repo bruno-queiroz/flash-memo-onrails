@@ -4,7 +4,7 @@ type useQueryParams<'a> = {
 }
 
 type useQueryReturnValues<'a> = {
-  data: 'a,
+  data: option<'a>,
   isError: bool,
   isPending: bool,
 }
