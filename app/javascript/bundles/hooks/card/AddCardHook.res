@@ -17,6 +17,7 @@ let useAddCard = () => {
 
   let {mutateAsync: cardMutate, isPending} = ReactQuery.useMutation({
     mutationFn: newCard => CreateCard.post(newCard),
+    mutationKey: None,
     onSuccess: () => queryClient.invalidateQueries({queryKey: ["decksData"]}),
   })
 
@@ -42,7 +43,7 @@ let useAddCard = () => {
         ease_factor: 1.7,
         interval: 0,
         repetitions: 0,
-        review_at: WebApi.date(1970),
+        review_at: WebApi.dateFromInt(1970),
       },
     }
 
