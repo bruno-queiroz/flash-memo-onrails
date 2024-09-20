@@ -37,8 +37,12 @@ type event = {preventDefault: unit => unit, animationName: string, target: docum
 @val external window: window = "window"
 @send external matchMedia: string => matchMedia = "matchMedia"
 
-@new external date: int => Js.Date.t = "Date"
+@new external dateFromInt: int => Js.Date.t = "Date"
+@new external dateFromJsDate: Js.Date.t => Js.Date.t = "Date"
 
 @val external event: event = "event"
 
 @scope("window") @val external setTimeout: (unit => unit, int) => unit = "setTimeout"
+
+@module("date-fns")
+external formatDistanceToNow: Js.Date.t => string = "formatDistanceToNow"
