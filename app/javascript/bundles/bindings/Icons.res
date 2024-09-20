@@ -22,3 +22,8 @@ module MenuIcon = {
   @react.component @module("react-icons/gi")
   external make: unit => React.element = "GiHamburgerMenu"
 }
+
+module DeleteIcon = {
+  @react.component @module("react-icons/ri")
+  external make: unit => React.element = "RiDeleteBin7Line"
+}
