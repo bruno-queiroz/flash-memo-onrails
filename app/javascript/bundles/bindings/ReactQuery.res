@@ -19,13 +19,20 @@ type invalidateQueriesFilter = {queryKey: array<string>}
 
 type queryClient = {invalidateQueries: invalidateQueriesFilter => unit}
 
-type useMutationResult<'a> = {
+type error = {message: string}
+
+type useMutationResult<'a, 'b> = {
+  data: option<'b>,
   mutateAsync: 'a,
+  mutate: 'a,
   isPending: bool,
+  isError: bool,
+  error: error,
 }
 
 type useMutationParams<'a> = {
   mutationFn: 'a,
+  mutationKey: option<array<string>>,
   onSuccess: unit => unit,
 }
 
@@ -46,4 +53,4 @@ external useQueryClient: unit => queryClient = "useQueryClient"
 @send external invalidateQueries: invalidateQueriesFilter => unit = "invalidateQueries"
 
 @module("@tanstack/react-query")
-external useMutation: useMutationParams<'a> => useMutationResult<'a> = "useMutation"
+external useMutation: useMutationParams<'a> => useMutationResult<'a, 'b> = "useMutation"
