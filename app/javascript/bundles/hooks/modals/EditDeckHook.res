@@ -19,6 +19,7 @@ let useEditDeckNameModal = () => {
   let queryClient = ReactQuery.useQueryClient()
   let {mutateAsync: renameDeckMutate} = ReactQuery.useMutation({
     mutationFn: data => RenameDeck.patch(data),
+    mutationKey: None,
     onSuccess: () => queryClient.invalidateQueries({queryKey: ["decksData"]}),
   })
 

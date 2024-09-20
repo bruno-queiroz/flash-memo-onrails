@@ -23,6 +23,7 @@ let useDeckDeleteModal = () => {
 
   let {mutateAsync: deleteDeckMutate, isPending} = ReactQuery.useMutation({
     mutationFn: (deckId: string) => DeleteDeck.delete(deckId),
+    mutationKey: None,
     onSuccess: () => queryClient.invalidateQueries({queryKey: ["decksData"]}),
   })
 
