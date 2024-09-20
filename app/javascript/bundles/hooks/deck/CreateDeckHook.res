@@ -23,6 +23,7 @@ let useCreateDeckModal = () => {
 
   let {mutateAsync: createDeckMutate, isPending} = ReactQuery.useMutation({
     mutationFn: newDeck => CreateDeck.create(newDeck),
+    mutationKey: None,
     onSuccess: () => {
       queryClient.invalidateQueries({queryKey: ["decksData"]})
     },
