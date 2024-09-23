@@ -21,3 +21,6 @@ module Link = {
 
 @module("react-router-dom")
 external useNavigate: unit => string => unit = "useNavigate"
+
+@module("react-router-dom")
+external useParams: unit => 'a = "useParams"
