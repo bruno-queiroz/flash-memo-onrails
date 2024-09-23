@@ -18,3 +18,6 @@ module Link = {
   external make: (~children: React.element, ~to: string, ~className: string=?) => React.element =
     "Link"
 }
+
+@module("react-router-dom")
+external useNavigate: unit => string => unit = "useNavigate"
