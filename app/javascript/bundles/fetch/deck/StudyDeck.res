@@ -13,7 +13,7 @@ type response = {
 }
 
 let get = async (deckTitle: string) => {
-  let response = await Fetch.fetch(`decks/${deckTitle}`, params)
+  let response = await Fetch.fetch(`/decks/${deckTitle}`, params)
   let data: Fetch.defaultResponse<array<Types.card>> = await Fetch.json(response)
 
   switch (data["isOk"]->Nullable.toOption, data["msg"]->Nullable.toOption) {
