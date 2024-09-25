@@ -6,6 +6,7 @@ let make = () => {
       <ReactRouter.Route path="/decks" element={<Decks />} />
       <ReactRouter.Route path="/add" element={<AddCard />} />
       <ReactRouter.Route path="/search" element={<Search />} />
+      <ReactRouter.Route path="/study/:deckTitle" element={<Study />} />
     </ReactRouter.Routes>
   </>
 }
